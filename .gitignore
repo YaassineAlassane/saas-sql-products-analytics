@@ -1,0 +1,21 @@
+# Configuration Cloud & Auth (Sécurité)
+.gcloud/
+*.json
+credentials.json
+.env
+
+# Fichiers de données (Trop volumineux pour Git)
+*.csv
+*.xlsx
+*.parquet
+
+# IDE & Système
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# dbt
+target/
+dbt_packages/
+logs/
