@@ -15,5 +15,5 @@ This project focuses on analyzing customer behavior and financial performance fo
 - **Version Control:** Git & GitHub
 
 ## 📂 Project Structure
-- : SQL scripts organized by analytical depth.
-- : Business logic definitions and data dictionary.
+- **`/scripts`**: SQL scripts organized by analytical depth (Exploration, Business Metrics).
+- **`/docs`**: Business logic definitions, data dictionary, and methodology.y.
