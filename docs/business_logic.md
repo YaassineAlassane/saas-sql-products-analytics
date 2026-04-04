@@ -26,3 +26,19 @@
 - **Most Used Feature**: feature_B.
 - **Least Used Feature**: feature_A.
 - **Observation**: User logins account for ~25% of activity, which is standard for a healthy daily usage pattern.
+
+
+## Product & Retention Logic (April 2026)
+### "Quasi-Ghost" Accounts Audit
+
+- **Engagement Threshold**:
+    - Definition of a "Quasi-Ghost": Any user with `total_events < 6`.
+    - Rationale: Initial audits showed no accounts with zero activity. The primary risk lies with paying users who rarely interact with the product.
+
+- **Fact Table: fct_user_engagement**
+    - Source of truth aggregating activity by `user_id`.
+    - Key Columns: `nb_login`, `nb_feature`, `total_events`.
+    - Time Tracking: `first_active_date` and `last_active_date`.
+
+
+

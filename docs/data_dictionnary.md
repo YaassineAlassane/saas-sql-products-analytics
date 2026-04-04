@@ -25,3 +25,18 @@
 |  | INTEGER | ID of the user who performed the action. |
 |  | TIMESTAMP | Precise date and time of the event. |
 |  | STRING | Nature of the action (e.g., login, page_view). |
+
+
+## Table: fct_user_engagement
+**Layer**: Gold  
+**Description**: One row per user summarizing total activity and engagement metrics.
+
+| Column Name | Data Type | Description |
+| :--- | :--- | :--- |
+| **user_id** | STRING | Unique identifier for the user (Primary Key). |
+| **revenue** | FLOAT | Total revenue associated with the user's subscription. |
+| **nb_login** | INTEGER | Total number of 'login' events recorded. |
+| **nb_feature** | INTEGER | Total number of feature-related events (e.g., feature_A, feature_B). |
+| **total_events** | INTEGER | Grand total of all activity types (Logins + Features). |
+| **first_active_date** | DATE | Timestamp of the very first event recorded for this user. |
+| **last_active_date** | DATE | Timestamp of the most recent event recorded for this user. |
