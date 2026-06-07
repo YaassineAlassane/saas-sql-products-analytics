@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: raw_saas_data
+    database: saas-revenue-ops
+    schema: analytics_layer
+    description: 
+      Raw dataset containing core tables from our SaaS platform database,
+      including user accounts, Stripe subscription states, and application usage logs.
+
+    tables:
+      - name: users
+        description: "Raw customer profiles and account registration data." # Données brutes d'inscription et profils clients.
+      - name: subscriptions
+        description: "Raw historical data tracking SaaS subscription plans and recurring revenues." # Historique brut des plans d'abonnements SaaS et revenus récurrents.
+      - name: events
+        description: "Raw event streams capturing user interactions and feature usage inside the product." # Flux d'événements bruts capturant les interactions utilisateurs et l'utilisation des fonctionnalités.
