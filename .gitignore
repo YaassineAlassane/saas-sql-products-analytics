@@ -1,21 +1,30 @@
-# Configuration Cloud & Auth (Sécurité)
+# === Environnement Virtuel Python & Caches ===
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# === dbt (Fichiers temporaires, logs et packages) ===
+target/
+dbt_packages/
+dbt_modules/
+logs/
+
+# === Configuration Cloud & Auth (Sécurité Absolue) ===
+profiles.yml
 .gcloud/
 *.json
 credentials.json
 .env
 
-# Fichiers de données (Trop volumineux pour Git)
+# === Fichiers de données (Trop volumineux pour Git) ===
 *.csv
 *.xlsx
 *.parquet
 
-# IDE & Système
+# === IDE & Système ===
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
-
-# dbt
-target/
-dbt_packages/
-logs/
