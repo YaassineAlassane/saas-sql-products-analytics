@@ -13,5 +13,5 @@ sources:
         description: "Raw customer profiles and account registration data." 
       - name: subscriptions
         description: "Raw historical data tracking SaaS subscription plans and recurring revenues." 
-      - name: events
+      - name: events_saas
         description: "Raw event streams capturing user interactions and feature usage inside the product."
