@@ -6,16 +6,11 @@ with source as (
 renamed as (
     select 
 
-        -- User identifier standardized as STRING across the entire warehouse
-        cast(user_id as string) as user_id, 
-
-        -- Subscription state machine status
+       
+        cast(user_id as string) as user_id,  
         subscription_status, 
-
-        -- Monthly recurring revenue contribution
-        revenue as monthly_revenue, 
-
-        -- Customer attrition and cancellation date
+        plan as subscription_plan,
+        revenue as monthly_revenue,    
         churn_date
 
     from source
