@@ -1,0 +1,36 @@
+version: 2
+description: "{{ doc('marts_overview') }}"
+models:
+  - name: dim_month
+    description: "Centralized monthly calendar dimension for SaaS financial and metrics projection."
+    columns:
+      - name: month_start_date
+        description: "Primary key. The first day of the month (YYYY-MM-01)."
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_mrr
+    description: "Granular fact table storing Monthly Recurring Revenue (MRR) at the user-month level."
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - financial_month
+            - user_id
+    columns:
+      - name: financial_month
+        description: "The specific financial snapshot month (foreign key to dim_month)."
+        tests:
+          - not_null
+      - name: user_id
+        description: "Foreign key linking to stg_users."
+        tests:
+          - not_null
+      - name: subscription_plan
+        description: "The active paid subscription plan for this specific month."
+        tests:
+          - not_null
+      - name: mrr
+        description: "The monthly recurring revenue amount attributed to this user."
+        tests:
+          - not_null

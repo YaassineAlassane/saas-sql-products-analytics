@@ -1,0 +1,19 @@
+version: 2
+description: "{{ doc('intermediate_overview') }}"
+models:
+  - name: int_subscription_users
+    description: "Intermediate model enriching subscription contracts with user profile attributes like country and signup date."
+    columns:
+      - name: user_id
+        description: "Primary key. Unique identifier of the customer holding the subscription."
+        tests:
+          - unique
+          - not_null
+      - name: signup_date
+        description: "The date when the user first registered. Critical for churn and tenure analysis."
+        tests:
+          - not_null
+      - name: subscription_plan
+        description: "The current billing plan associated with the subscription."
+        tests:
+          - not_null
