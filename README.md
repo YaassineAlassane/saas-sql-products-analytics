@@ -101,7 +101,7 @@ This layer is designed to support decision-making for Finance and Revenue Operat
 ---
 
 ### 📐 dbt Lineage Graph
-![dbt Lineage Graph](images/lineage_graph.png)
+![dbt Lineage Graph](assets/lineage_graph.PNG)
 
 ---
 # 🛠️ Technology Stack
