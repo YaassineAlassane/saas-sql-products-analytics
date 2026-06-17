@@ -1,44 +1,22 @@
-# Business Logic & Insights
+# Business Logic & Metric Definitions
 
-## 📣 Marketing Logic
-### User Acquisition Audit (March 2026)
-- **Total Unique Users**: 100.
-- **Primary Markets**: Canada (29), USA (25), UK (23).
-- **Insight**: English-speaking markets dominate the initial installed base (77% of total).
-## 💰 Finance Logic
-### Financial Health Audit (March 2026)
-- **Total Revenue**: 1490.
-- **Global ARPU**: 14.9.
-- **Metric Definition**: ARPU is calculated as  to ensure per-user accuracy.
-- **Audit Observation**: The average revenue (4.9) is lower than the minimum plan price (0), indicating the presence of non-paying or churned users in the raw dataset.
+## 💰 Revenue Operations & Financial Rules
 
+### 1. Monthly Average Revenue Per User (ARPU)
+* **Business Concept**: Measures the average monthly monetization efficiency per paying customer.
+* **Strict Data Formula**: 
+  To ensure temporal accuracy and avoid mixing historical periods, the metric is computed at the monthly grain (`financial_month`):
+  $$ARPU = \frac{\sum(MRR)}{\text{COUNT}(DISTINCT \text{ user\_id})}$$
+  *Note: Calculated only for users where $MRR > 0$ within the active month.*
 
-## 💰 Finance Logic
-### Financial Health Audit (March 2026)
-- **Total Revenue**: 1490.
-- **Global ARPU**: 14.9.
-- **Metric Definition**: ARPU is calculated as `SUM(revenue) / COUNT(DISTINCT user_id)` to ensure per-user accuracy.
-- **Audit Observation**: The average revenue ($14.9) is lower than the minimum plan price ($20), indicating the presence of non-paying or churned users in the raw dataset.
+### 2. Active Customers Definition
+* **Data Rule**: An "Active Customer" is strictly defined as a unique user generating a Monthly Recurring Revenue strictly greater than zero ($MRR > 0$) during the analyzed `financial_month`.
+* **SQL Logic Equivalent**: `COUNT(DISTINCT CASE WHEN mrr > 0 THEN user_id END)`
 
-## 🖱️ Engagement Logic
-### User Activity Audit (March 2026)
-- **Total Events**: 1000 (approx).
-- **Most Used Feature**: feature_B.
-- **Least Used Feature**: feature_A.
-- **Observation**: User logins account for ~25% of activity, which is standard for a healthy daily usage pattern.
+### 3. Revenue Segmentation & Guardrails
+* **Geographic Breakdown**: Total MRR is aggregated by `user_country` to isolate driving markets (Canada, USA, India, UK). 
+* **Subscription Tiering**: Revenue splits are strictly mapped against the current active plan (`Basic` vs `Pro`). 
 
-
-## Product & Retention Logic (April 2026)
-### "Quasi-Ghost" Accounts Audit
-
-- **Engagement Threshold**:
-    - Definition of a "Quasi-Ghost": Any user with `total_events < 6`.
-    - Rationale: Initial audits showed no accounts with zero activity. The primary risk lies with paying users who rarely interact with the product.
-
-- **Fact Table: fct_user_engagement**
-    - Source of truth aggregating activity by `user_id`.
-    - Key Columns: `nb_login`, `nb_feature`, `total_events`.
-    - Time Tracking: `first_active_date` and `last_active_date`.
-
-
-
+## ⚠️ Data Quality & Audit Observations
+* **Zero-Revenue Anomalies**: During the initial profiling of the raw dataset, records were identified with missing or zero-value revenue fields for historically signed users. 
+* **Pipeline Enforcement**: Instead of assuming these were "free trials" (not supported by the current raw schema), the dbt staging layer isolates these anomalies to ensure the final Power BI dashboard only reflects active, paying financial cohorts.
