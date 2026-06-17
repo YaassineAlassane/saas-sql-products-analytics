@@ -9,13 +9,13 @@
 
 ```text
 ARPU = SUM(mrr) / COUNT(DISTINCT user_id)
+
 Note: Calculated only for users where MRR > 0 within the active month.
 
 2. Active Customers Definition
 Data Rule: An "Active Customer" is strictly defined as a unique user generating a Monthly Recurring Revenue strictly greater than zero (MRR > 0) during the analyzed financial_month.
 
-SQL Logic Equivalent:
-COUNT(DISTINCT CASE WHEN mrr > 0 THEN user_id END)
+SQL Logic Equivalent: COUNT(DISTINCT CASE WHEN mrr > 0 THEN user_id END)
 
 3. Revenue Segmentation & Guardrails
 Geographic Breakdown: Total MRR is aggregated by user_country to isolate driving markets (Canada, USA, India, UK).
