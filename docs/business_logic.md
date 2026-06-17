@@ -2,17 +2,13 @@
 
 ## 💰 Revenue Operations & Financial Rules
 
----
-
 ### 1. Monthly Average Revenue Per User (ARPU)
 
-**Business Concept:** Measures the average monthly monetization efficiency per paying customer.
-
-**Strict Data Formula:** To ensure temporal accuracy and avoid mixing historical periods, the metric is computed at the monthly grain (`financial_month`).
+* **Business Concept:** Measures the average monthly monetization efficiency per paying customer.
+* **Strict Data Formula:** To ensure temporal accuracy and avoid mixing historical periods, the metric is computed at the monthly grain (`financial_month`).
 
 ```math
 ARPU = \frac{\sum(MRR)}{COUNT(DISTINCT\ user\_id)}
-
 Note: Calculated only for users where MRR > 0 within the active month.
 
 2. Active Customers Definition
@@ -20,7 +16,6 @@ Data Rule: An "Active Customer" is strictly defined as a unique user generating 
 
 SQL Logic Equivalent:
 COUNT(DISTINCT CASE WHEN mrr > 0 THEN user_id END)
-
 3. Revenue Segmentation & Guardrails
 Geographic Breakdown: Total MRR is aggregated by user_country to isolate driving markets (Canada, USA, India, UK).
 
