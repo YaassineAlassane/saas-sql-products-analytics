@@ -6,11 +6,13 @@
 * **Business Concept**: Measures the average monthly monetization efficiency per paying customer.
 * **Strict Data Formula**: 
   To ensure temporal accuracy and avoid mixing historical periods, the metric is computed at the monthly grain (`financial_month`):
-  $$ARPU = \frac{\sum(MRR)}{\text{COUNT}(DISTINCT \text{ user\_id})}$$
-  *Note: Calculated only for users where $MRR > 0$ within the active month.*
+  
+  $$\text{ARPU} = \frac{\sum(\text{MRR})}{\text{COUNT}(\text{DISTINCT } \text{user\_id})}$$
+  
+  *Note: Calculated only for users where MRR > 0 within the active month.*
 
 ### 2. Active Customers Definition
-* **Data Rule**: An "Active Customer" is strictly defined as a unique user generating a Monthly Recurring Revenue strictly greater than zero ($MRR > 0$) during the analyzed `financial_month`.
+* **Data Rule**: An "Active Customer" is strictly defined as a unique user generating a Monthly Recurring Revenue strictly greater than zero (MRR > 0) during the analyzed `financial_month`.
 * **SQL Logic Equivalent**: `COUNT(DISTINCT CASE WHEN mrr > 0 THEN user_id END)`
 
 ### 3. Revenue Segmentation & Guardrails
