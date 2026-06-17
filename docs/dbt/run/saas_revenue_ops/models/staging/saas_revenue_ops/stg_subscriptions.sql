@@ -1,0 +1,25 @@
+
+
+  create or replace view `saas-revenue-ops`.`analytics_layer`.`stg_subscriptions`
+  OPTIONS()
+  as with source as (    
+    select *
+    from `saas-revenue-ops`.`raw_layer`.`subscriptions`
+), 
+
+renamed as (
+    select 
+
+       
+        cast(user_id as string) as user_id,  
+        subscription_status, 
+        plan as subscription_plan,
+        revenue as monthly_revenue,    
+        churn_date
+
+    from source
+
+)
+
+    select * from renamed;
+
