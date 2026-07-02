@@ -1,5 +1,19 @@
 # 🚀 SaaS Revenue Analytics Pipeline (End-to-End)
 
+![BigQuery](https://img.shields.io/badge/BigQuery-4285F4?style=for-the-badge&logo=googlebigquery&logoColor=white)
+
+![dbt Core](https://img.shields.io/badge/dbt%20Core-FF694B?style=for-the-badge&logo=dbt&logoColor=white)
+
+![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+
+![Analytics Engineering](https://img.shields.io/badge/Analytics%20Engineering-0A66C2?style=for-the-badge)
+
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+
 End-to-end **Analytics Engineering project** built with **Google BigQuery, dbt Core, and Power BI**.
 
 This project transforms raw SaaS subscription data into reliable financial metrics such as **MRR, ARPU, and active customers**, enabling data-driven decision-making.
