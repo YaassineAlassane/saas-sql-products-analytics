@@ -85,7 +85,7 @@ models/
 # 🧪 Data Quality & Testing
 
 * `unique` and `not_null` tests on primary keys
-* Referential integrity between users and subscriptions
+* Referential integrity validated via dbt_utils tests and staging-level data constraints
 * Prevention of duplicate monthly revenue records
 * Composite key validation (user_id + month)
 
