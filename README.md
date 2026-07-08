@@ -29,7 +29,7 @@ dbt Marts (Final Metrics Layer)
         ↓
 Power BI Dashboards
 ```
-🔗 **[Explore the Interactive dbt Lineage Graph ➔](https://yaassinealassane.github.io/saas-sql-products-analytics/dbt/static_index.html#!/overview?g_v=1))**
+🔗 <strong><a href="https://yaassinealassane.github.io/saas-sql-products-analytics/dbt/static_index.html#!/overview?g_v=1" target="_blank" rel="noopener noreferrer">Explore the Interactive dbt Lineage Graph ➔</a></strong>
 ---
 
 # 🎯 Business Objective
